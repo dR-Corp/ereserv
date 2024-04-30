@@ -43,6 +43,13 @@
                 <p>Réservations</p>
             </a>
         </li>
+        
+        <li class="nav-item mt-1 <?php if($request == '/users') echo 'menu-open' ?>">
+            <a href="users" class="nav-link font-weight-bold <?php if($request == '/users') echo 'active' ?>">
+                <i class="nav-icon fas fa-bars"></i>
+                <p>Utilisateurs</p>
+            </a>
+        </li>
        
         
     </nav>

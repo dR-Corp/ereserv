@@ -9,6 +9,7 @@
     // Router::setRoute("/reserver", "ReservationController", "reserver");
     Router::setRoute("/salles", "SalleController", "index");
     Router::setRoute("/reservations", "ReservationController", "index");
+    Router::setRoute("/users", "UserController", "index");
 
 
 

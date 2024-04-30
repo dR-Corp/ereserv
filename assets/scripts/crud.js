@@ -169,7 +169,7 @@ $(function () {
             });
 
         },
-        "ajax": '/data/'+entity,
+        "ajax": 'data/'+entity,
         "columns": columns,
         "columnDefs": [
             {
@@ -255,7 +255,7 @@ $(function () {
     function ajouter(data) {
         
         $.ajax({
-            url: "/add/"+entity,
+            url: "add/"+entity,
             type: "POST",
             data,
             cache: false,
@@ -313,7 +313,7 @@ $(function () {
     function modifier(id, data) {
 
         $.ajax({
-            url: "/edit/"+entity+"/"+id,
+            url: "edit/"+entity+"/"+id,
             type: "POST",
             data,
             cache: false,
@@ -347,7 +347,7 @@ $(function () {
     function supprimer(id) {
         
         $.ajax({
-            url: "/del/"+entity+"/"+id,
+            url: "del/"+entity+"/"+id,
             type: "GET",
             cache: false,
             success: function(data) {

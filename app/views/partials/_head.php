@@ -1,6 +1,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PTA|UP</title>
+    <title>eReserv</title>
     <!-- icon -->
     <link rel="icon" href="<?=ASSETS;?>img/newlogo.png" type="image/x-icon">
     <!-- Tell the browser to be responsive to screen width -->

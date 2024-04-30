@@ -1,5 +1,5 @@
 <?php
-class RéservationController extends Controller
+class ReservationController extends Controller
 {
     
     public function index($params) {

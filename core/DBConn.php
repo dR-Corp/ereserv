@@ -5,7 +5,7 @@ class DBConn {
     private $host = "localhost";
     private $username = "root";
     private $password = "154826";
-    private $dbname = "pta";
+    private $dbname = "ereserv";
     private $db;
     private $table;
 

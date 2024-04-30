@@ -82,7 +82,7 @@ function generateSelectOptions($filtered_class, $filtered_name) {
             <?php generateSelectOptions($attribute['ref_class'], $attribute['name']); ?>
 
             <div class="form-group">
-                <label for="titre"><?= $attribute['lib'] ?></label>
+                <label for="<?= $attribut['name'] ?>"><?= $attribute['lib'] ?></label>
                 <?php
                     if(in_array('annee_ID', (new $attribute['ref_class'])->fillable()))
                         $elements = $attribute['ref_class']::whereAll([["annee_ID", "=", Annee::active()->getId()]]);
@@ -121,33 +121,33 @@ function generateSelectOptions($filtered_class, $filtered_name) {
                             <?php if($attribut['input_type'] == "text"): ?>
                                 <?php if(isset($attribut['hidden']) && $attribut['hidden'] == true): ?>
                                     <div class="form-group d-none">
-                                        <label for="titre"><?= $attribut['lib'] ?></label>
+                                        <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                         <input hidden type="text" class="form-control" id="<?= $attribut['name'] ?>" value="<?= $attribut['default'] ?>" <?= $attribut['required'] ?> />
                                     </div>
                                 <?php else: ?>
                                     <div class="form-group">
-                                        <label for="titre"><?= $attribut['lib'] ?></label>
+                                        <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                         <input type="text" class="form-control" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?> />
                                     </div>
                                 <?php endif; ?>
                             <?php elseif($attribut['input_type'] == "textarea"): ?>
                             <div class="form-group">
-                                <label for="titre"><?= $attribut['lib'] ?></label>
-                                <textarea name="values[liens]" id="liens" cols="30" rows="3" class="form-control" <?= $attribut['required'] ?>></textarea>
+                                <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
+                                <textarea id="<?= $attribut['name'] ?>" cols="30" rows="3" class="form-control" <?= $attribut['required'] ?>></textarea>
                             </div>
                             <?php elseif($attribut['input_type'] == "number"): ?>
                             <div class="form-group">
-                                <label for="titre"><?= $attribut['lib'] ?></label>
+                                <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                 <input type="number" class="form-control" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?> />
                             </div>
                             <?php elseif($attribut['input_type'] == "file"): ?>
                             <div class="form-group">
-                                <label for="titre"><?= $attribut['lib'] ?></label>
+                                <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                 <input type="file" class="form-control" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?> />
                             </div>
                             <?php elseif($attribut['input_type'] == "password"): ?>
                             <div class="form-group">
-                                <label for="titre"><?= $attribut['lib'] ?></label>
+                                <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                 <input type="password" class="form-control" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?> />
                             </div>
                             <?php elseif($attribut['input_type'] == "select"): ?>
@@ -164,7 +164,7 @@ function generateSelectOptions($filtered_class, $filtered_name) {
 
                                     <!-- les parents consécutifs antérieurs -->
                                     <div class="form-group">
-                                        <label for="titre"><?= $attribut['lib'] ?></label>
+                                        <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                         <select class="form-control select2 custom-select" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?>>
                                             <option value=""></option>
                                             <?php foreach($elements as $value): ?>
@@ -176,7 +176,7 @@ function generateSelectOptions($filtered_class, $filtered_name) {
                                     <!-- le foreign key -->
                                 <?php else: ?>
                                     <div class="form-group">
-                                        <label for="titre"><?= $attribut['lib'] ?></label>
+                                        <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                         <select class="form-control select2 custom-select" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?>>
                                             <option value=""></option>
                                             <?php foreach($attribut['input_values'] as $id => $lib): ?>
@@ -187,13 +187,13 @@ function generateSelectOptions($filtered_class, $filtered_name) {
                                 <?php endif; ?>
                             <?php elseif($attribut['input_type'] == "checkbox"): ?>
                             <div class="form-group">
-                                <label for="titre"><?= $attribut['lib'] ?></label>
-                                <input type="checkbox" name="" id="">
+                                <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
+                                <input type="checkbox" id="<?= $attribut['name'] ?>">
                             </div>
                             <?php elseif($attribut['input_type'] == "radio"): ?>
                             <div class="form-group">
-                                <label for="titre"><?= $attribut['lib'] ?></label>
-                                <input type="radio" name="" id="">
+                                <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
+                                <input type="radio" id="">
                             </div>
                             <?php endif; ?>
                         <?php endif; ?>
