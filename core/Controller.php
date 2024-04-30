@@ -175,6 +175,8 @@ class Controller
 
     public function dataSPP($params) {
 
+        echo "<pre>"; print_r($params); exit;
+
         extract($params); // $entite
         
         //The model

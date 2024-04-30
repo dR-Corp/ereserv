@@ -26,7 +26,7 @@ class MyAutoload {
 
         define('ASSETS', HOST.'//assets/');
         define('STORAGES', HOST.'//storage/');
-        define('SCRIPTS', HOST.'//scripts/');
+        define('SCRIPTS', HOST.'//assets/scripts/');
 
     }
 

@@ -19,7 +19,7 @@
 
         <div class="row">
             
-            <div class="col-md-12">
+            <div class="col-md-8">
 
                 <div class="callout callout-info">
                     <h5><i class="fas fa-info"></i> Note:</h5>
