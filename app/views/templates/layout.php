@@ -14,7 +14,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-cyan elevation-4">
             <!-- Brand Logo -->
-            <a href="/home" class="brand-link" style="background-color: #044687;">
+            <a href="home" class="brand-link" style="background-color: #044687;">
                 <img src="<?= ASSETS; ?>img/AdminLTELogo.png" alt="AdminLTE Logo" class="bg-white brand-image img-circle elevation-3">
                 <span class="brand-text font-weight-bold text-white ml-1">eReserv</span>
             </a>
