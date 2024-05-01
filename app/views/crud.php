@@ -145,6 +145,11 @@ function generateSelectOptions($filtered_class, $filtered_name) {
                                 <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
                                 <input type="file" class="form-control" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?> />
                             </div>
+                            <?php elseif($attribut['input_type'] == "date"): ?>
+                            <div class="form-group">
+                                <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
+                                <input type="date" class="form-control" id="<?= $attribut['name'] ?>" <?= $attribut['required'] ?> />
+                            </div>
                             <?php elseif($attribut['input_type'] == "password"): ?>
                             <div class="form-group">
                                 <label for="<?= $attribut['name'] ?>"><?= $attribut['lib'] ?></label>
@@ -156,10 +161,7 @@ function generateSelectOptions($filtered_class, $filtered_name) {
                                     <?php generateSelectOptions($attribut['ref_class'], $attribut['name']); ?>
 
                                     <?php
-                                        if(in_array('annee_ID', (new $attribut['ref_class'])->fillable()))
-                                            $elements = $attribut['ref_class']::whereAll([["annee_ID", "=", Annee::active()->getId()]]);
-                                        else
-                                            $elements = $attribut['ref_class']::all();
+                                        $elements = $attribut['ref_class']::all();
                                     ?>
 
                                     <!-- les parents consécutifs antérieurs -->

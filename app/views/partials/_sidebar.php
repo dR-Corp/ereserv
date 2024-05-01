@@ -16,8 +16,8 @@
             </a>
         </li>
 
-        <li class="nav-item mt-1 <?php if($request == '/reserver') echo 'menu-open' ?>">
-            <a href="reserver" class="nav-link font-weight-bold <?php if($request == '/reserver') echo 'active' ?>">
+        <li class="nav-item mt-1 <?php if($request == '/reservation') echo 'menu-open' ?>">
+            <a href="reservation" class="nav-link font-weight-bold <?php if($request == '/reservation') echo 'active' ?>">
                 <i class="nav-icon fas fa-calendar-alt"></i>
                 <p>Réserver salle</p>
             </a>
@@ -29,6 +29,8 @@
                 <p>Suivre une demande</p>
             </a>
         </li>
+
+        <?php if(isset($_SESSION['username']) && $_SESSION['role'] == 0): ?>
         
         <li class="nav-item mt-1 <?php if($request == '/salles') echo 'menu-open' ?>">
             <a href="salles" class="nav-link font-weight-bold <?php if($request == '/salles') echo 'active' ?>">
@@ -50,6 +52,8 @@
                 <p>Utilisateurs</p>
             </a>
         </li>
+
+        <?php endif; ?>
        
         
     </nav>

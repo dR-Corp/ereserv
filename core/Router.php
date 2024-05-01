@@ -70,10 +70,10 @@ class Router {
 
         // $matches = preg_match('`^'.$this->request.'$`', $url, $matches);
 
-        echo '<pre>'; print_r($elements);
-        echo '<pre>'; print_r($this->request);
-        echo '<pre>'; print_r($url);
-        echo '<pre>'; print_r($matches); exit;
+        // echo '<pre>'; print_r($elements);
+        // echo '<pre>'; print_r($this->request);
+        // echo '<pre>'; print_r($url);
+        // echo '<pre>'; print_r($matches); exit;
 
         return $params;
     }

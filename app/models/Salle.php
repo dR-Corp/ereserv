@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * class SousProgramme
+ * class Salle
  */
 class Salle extends Model {
 

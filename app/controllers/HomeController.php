@@ -11,12 +11,15 @@ class HomeController extends Controller
         ]);
     }
 
-    public function reserver($params) {
+    public function reservation($params) {
 
-        $view = new PageView('reserver');
+        $view = new PageView('reservation');
+
+        $salles = Salle::all();
         
         $view->render([
-            "titrePage" => "Réservation d'une salle"
+            "titrePage" => "Réservation d'une salle",
+            "salles" => $salles
         ]);
     }
 
@@ -31,18 +34,26 @@ class HomeController extends Controller
 
     public function disponibilite($params) {
 
+        extract($params);
+
+        $reservations = Reservation::where("salle_id", "=", $id);
+
         $view = new PageView('disponibilite');
         
         $view->render([
-            "titrePage" => "Disponibilité de la salle"
+            "titrePage" => "Disponibilité de la salle",
+            "reservations" => $reservations
         ]);
     }
 
     public function reserverSalle($params) {
 
+        extract($params);
+
         $view = new PageView('reserverSalle');
         
         $view->render([
+            "salle_id" => $id,
             "titrePage" => "Réservation"
         ]);
     }

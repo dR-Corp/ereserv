@@ -6,6 +6,7 @@
       </li>
     </ul>
     
+    <?php if(isset($_SESSION['username']) && $_SESSION['role'] == 0): ?>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">    
       
@@ -18,17 +19,15 @@
         </a>
         <div class="dropdown-menu dropdown-menu dropdown-menu-right">
           <span class="dropdown-item dropdown-header">
-                <div class="d-block font-weight-bold" style="color: #044687;">Nom Prenom</div>
+                <div class="d-block font-weight-bold" style="color: #044687;"><?php echo isset($_SESSION['username']) ? $_SESSION['nom'] : "" ?></div>
           </span>
           <div class="dropdown-divider"></div>
-          <a href="/profil" class="dropdown-item">
-            <i class="fas fa-user mr-2"></i> Profil
-          </a>
           <div class="dropdown-divider"></div>
-          <a href="/logout" class="dropdown-item">
+          <a href="logout" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Déconnexion
           </a>
         </div>
       </li>
     </ul>
+    <?php endif; ?>
   </nav>

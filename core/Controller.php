@@ -1,7 +1,6 @@
 <?php
 class Controller
 {
-
     
     private static function getSnakeCaseName($className) {
         $className = preg_replace('/([a-z])([A-Z])/', '$1_$2', $className."s"); // Convertir CamelCase en snake_case
@@ -15,9 +14,7 @@ class Controller
         $data = [];
 
         $conditions = [];
-        if(in_array('annee_ID', (new $entity)->fillable())) {
-            $conditions[] = ["annee_ID", "=", Annee::active()->getId()];
-        }
+        
         if($filter_id) {
             $conditions[] = [$foreign_key, "=", $filter_id];
         }
@@ -77,9 +74,6 @@ class Controller
     public function add($params) {
 
         extract($params); // entity
-        
-        if(in_array('annee_ID', (new $entity)->fillable())) 
-            $_POST['annee_ID'] = Annee::active()->getId();
     
         // $fill = (new $entity)->fillable();
         // echo "<pre>"; print_r($this->empty_field($entity)); echo "shower <br>";
@@ -89,8 +83,34 @@ class Controller
         
         // echo "<pre>"; print_r($fill);
         // echo "<pre>"; print_r($_POST); exit;
+        if(!isset($_POST)) {
+            $data = file_get_contents('php://input');
+            $_POST = json_decode($data, true);
+        }
 
         if(count($_POST) == (new $entity)->count_fillable() && !$this->empty_field($entity)) {
+
+            if (isset($_POST['image']) && !empty($_POST['image'])) {
+                // Récupérer les données de l'image
+                $imageData = $_POST['image'];
+                
+                // Convertir l'URL base64 en données binaires
+                $imageData = str_replace('data:image/png;base64,', '', $imageData);
+                $imageData = str_replace(' ', '+', $imageData);
+                $imageBinary = base64_decode($imageData);
+                
+                $image_name = "salle_".uniqid().'.png';
+                $imagePath = '../uploads/'.$image_name;
+                
+                // Écrire les données binaires dans un fichier
+                if (file_put_contents($imagePath, $imageBinary) !== false) {
+                    $_POST["photo"] = $image_name;                    
+                } else {
+                    $message = 'Erreur lors de l\'enregistrement de l\'image sur le serveur.';
+                }
+            } else {
+                $message = 'Aucune donnée d\'image reçue.';
+            }
 
             $res = $entity::create($_POST);
 
@@ -219,9 +239,6 @@ class Controller
         $sql_details = "";
         $whereResult = null;
         $whereAll = null;
-
-        if(in_array('annee_ID', (new $entity)->fillable()))
-            $whereAll = $entity_table.'.`annee_ID` = '.Annee::active()->getId();
 
         $data = SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, $whereResult, $whereAll, $joined);
     

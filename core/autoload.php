@@ -50,11 +50,11 @@ class MyAutoload {
     }
 
     public static function sql_details() {
-        return array ( 'user' => 'root', 'pass' => '154826', 'db'   => 'ereserv', 'host' => 'localhost' );
+        return array ( 'user' => 'root', 'pass' => '', 'db'   => 'ereserv', 'host' => 'localhost' );
     }
 
-    public static function dbconnect() {
-        return new PDO("mysql:host=localhost;dbname=ereserv;charset=utf8", "root", "154826", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-    }
+    // public static function dbconnect() {
+    //     return new PDO("mysql:host=localhost;dbname=ereserv;charset=utf8", "root", "", array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+    // }
     
 }

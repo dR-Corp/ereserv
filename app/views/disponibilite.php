@@ -37,6 +37,9 @@
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <div class="table-responsive">
+
+                  <?php if($reservations && count($reservations) > 0): ?>
+
                   <table class="table m-0">
                     <thead>
                     <tr>
@@ -47,14 +50,21 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($reservations as $reservation): ?>
                     <tr>
-                      <td>1</td>
-                      <td>15/05/2024</td>
-                      <td>15/10/2024</td>
+                      <td><?= $reservation["id"] ?></td>
+                      <td><?= $reservation["date_debut"] ?></td>
+                      <td><?= $reservation["date_fin"] ?></td>
                       <td><span class="badge badge-success">Réservé</span></td>
                     </tr>
+                    <?php endforeach; ?>
                     </tbody>
                   </table>
+
+                  <?php else: ?>
+                    <p class="p-3 text-info">Aucune réservation n'est en cours pour cette salle. Elle est entièrement libre !</p>
+                  <?php endif; ?>
+
                 </div>
                 <!-- /.table-responsive -->
               </div>
