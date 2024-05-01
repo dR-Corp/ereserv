@@ -9,6 +9,9 @@
     Router::setRoute("/salles", "SalleController", "index");
     Router::setRoute("/reservations", "ReservationController", "index");
     Router::setRoute("/users", "UserController", "index");
+    
+    Router::setRoute("/login", "UserController", "login");
+    Router::setRoute("/log", "UserController", "log");
 
     Router::setRoute("/suivi", "ReservationController", "suivi");
     // Liste des salles
